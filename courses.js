@@ -1,4 +1,4 @@
-var data = $.csv.toObjects(`"Course code","Course name","Course holder code","Course holder name"
+var data = $.csv.toObjects(`"courseCode","courseName","courseHolderCode","courseHolderName"
 "DAT220","Advanced software architecture","MPSOF","SOFTWARE ENGINEERING AND TECHNOLOGY - UTVECKLING OCH IMPLEMENTERING AV MJUKVARA, MASTERPROGRAM"
 "SJO787","Avancerade fartygsoperationer","TSJKL","SJÖKAPTEN"
 "AFT062","Boendets rum","TKARK","ARKITEKTUR"

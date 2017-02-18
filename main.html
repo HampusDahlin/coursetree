@@ -9,11 +9,13 @@
 			console.log(data);
 			
 			$( document ).ready(function() {
-				
+				for(i in data){
+					$('#content').append(data[i].courseName + "<p />");
+				}
 			})
 
 		</script>
-		
+
 		<meta charset="ISO-8859-1">
 	</head>
 	<body>
