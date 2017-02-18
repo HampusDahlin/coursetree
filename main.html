@@ -3,19 +3,36 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="jquery.csv.js"></script>
 		<script src="courses.js"></script>
+		<link rel="stylesheet" type="text/css" href="main.css">
 
 		<script type="text/javascript">
 			//var data = $.csv.toObjects(input);
 			console.log(data);
 			
 			$( document ).ready(function() {
+				var representations = [];
+				
+				data.sort(function(a,b){
+					var textA = a.courseCode;
+    				var textB = b.courseCode;
+				    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+				})
+
 				for(i in data){
-					$('#content').append(data[i].courseName + "<p />");
+					representations.push("<div class='course " + data[i].courseHolderCode + "' id=" + data[i].courseCode + ">Course code: " + data[i].courseCode + "<br />Course name: " + data[i].courseName + "<br />faculty code: " + data[i].courseHolderCode + " </div>");
+					
+					/*switch(data[i].courseHolderCode) {
+						case "MPSOF":
+							console.log("red");
+							$( ".MPSOF" ).css("background-color", "green");
+							break;
+					}*/
 				}
+
+
+				$('#content').append(representations);
 			})
-
 		</script>
-
 		<meta charset="ISO-8859-1">
 	</head>
 	<body>

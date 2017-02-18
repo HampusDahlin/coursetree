@@ -1,0 +1,10 @@
+#content {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.course {
+	width: 10vw;
+	margin: 1em;
+}
