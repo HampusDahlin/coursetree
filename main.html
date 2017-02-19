@@ -65,7 +65,7 @@
 							}
 						}
 						for(j in selectedCoursesForPeriod) {
-							selectedCourseRepresentations += ("<div class='selected-course'>" + selectedCoursesForPeriod[j].courseCode + " is in LP"+i + "</div>");
+							selectedCourseRepresentations += ("<div class='selected-course " + selectedCoursesForPeriod[j].courseHolderCode + " ><p id='course-code'>" + selectedCoursesForPeriod[j].courseCode + " </p><p id='course-name'>"+ selectedCoursesForPeriod[j].courseName + "</p></div>");
 						}
 						$("#study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
 					};
