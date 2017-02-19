@@ -14,9 +14,8 @@
 				var representations = "";
 
 				data.sort(function(a,b){
-					var textA = a.studyPeriod;
-    				var textB = b.studyPeriod;
-				    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+				    return (a.studyPeriod < b.studyPeriod) ? -1 : (a.studyPeriod > b.studyPeriod) ? 1 : 
+				    	((a.courseHolderCode < b.courseHolderCode) ? -1 : (a.courseHolderCode > b.courseHolderCode) ? 1 : 0);
 				})
 
 				representations += ("<div class='period'>");
@@ -27,12 +26,12 @@
 							representations += ("</div><div class='period'>");
 						}
 					}
-					representations += ("<div class='course " + data[i].courseHolderCode
+					representations += (
+					 "<div class='course " + data[i].courseHolderCode
 					 + "' id=" + data[i].courseCode +
-					 ">Course code: " + data[i].courseCode +
-					 "<br />Course name: " + data[i].courseName +
-					 "<br />Study period: " + data[i].studyPeriod +
-					 "<br />faculty code: " + data[i].courseHolderCode + " </div>");
+					 "> <block class='course-code'>" + data[i].courseCode +
+					 "</block><p class='course-name'>" + data[i].courseName +
+					 "</p></div>");
 				}
 
 				representations += ("</div>");
