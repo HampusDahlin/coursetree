@@ -24,7 +24,7 @@
 }
 
 .selected-course {
-	max-width: 35%;
+	width: 35%;
 	margin: 7px;
 	padding: 1vw 1vw 1vw 1vw;
 	border-radius: 3px;
