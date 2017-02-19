@@ -4,7 +4,8 @@
 }
 
 #selected-courses {
-	min-width: 30vw;
+	position: fixed;
+	width: 30vw;
 	height: 90vh;
 	margin: 1em;
 	padding: 1vw 1vw 1vw 1vw;
@@ -35,6 +36,7 @@
 }
 
 #course-list {
+	margin-left: 32vw;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
