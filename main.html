@@ -13,6 +13,7 @@
 
 			//Does on document ready
 			$( document ).ready(function() {
+				var selectedCourses = [];
 
 				//Create visual representations of courses and display them
 				var representations = "";
@@ -46,10 +47,28 @@
 
 				//On course click
 				$(".course").click(function() {
-					console.log(event.target.id);
 					for(i in data) {
-						
+						if(data[i].courseCode == event.target.id){
+							selectedCourses.push(data[i]);
+						}
 					}
+
+					for (var i = 1; i <= 4; i++) {
+						var selectedCoursesForPeriod = [];
+						var selectedCourseRepresentations = "";
+						for(j in selectedCourses) {
+							if(selectedCourses[j].studyPeriod == "LP"+i){
+								selectedCoursesForPeriod.push(selectedCourses[j]);
+								if(selectedCoursesForPeriod.length > 2){
+									selectedCoursesForPeriod.shift();
+								}
+							}
+						}
+						for(j in selectedCoursesForPeriod) {
+							selectedCourseRepresentations += ("<div class='selected-course'>" + selectedCoursesForPeriod[j].courseCode + " is in LP"+i + "</div>");
+						}
+						$("#study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
+					};
 				})
 
 			})
