@@ -51,6 +51,12 @@ body {
 	color: #808080;
 }
 
+.lp-disp {
+	font-family: 'Roboto Slab', serif;
+	font-size: 0.9em;
+	color: #808080;
+}
+
 .period {
 	display: flex;
 	flex-direction: row;
