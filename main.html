@@ -10,22 +10,31 @@
 			console.log(data);
 
 			$( document ).ready(function() {
-				var representations = [];
+				var representations = "";
 
 				data.sort(function(a,b){
-					var textA = a.courseCode;
-    				var textB = b.courseCode;
+					var textA = a.studyPeriod;
+    				var textB = b.studyPeriod;
 				    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
 				})
 
+				representations += ("<div class='period'>");
+
 				for(i in data){
-					representations.push("<div class='course " + data[i].courseHolderCode
-					 + "' id=" + data[i].courseCode + ">Course code: " +
-					 data[i].courseCode + "<br />Course name: " +
-				 	 data[i].courseName + "<br />faculty code: " +
-					 data[i].courseHolderCode + " </div>");
+					if(i > 0){
+						if(data[i-1].studyPeriod != data[i].studyPeriod){
+							representations += ("</div><div class='period'>");
+						}
+					}
+					representations += ("<div class='course " + data[i].courseHolderCode
+					 + "' id=" + data[i].courseCode +
+					 ">Course code: " + data[i].courseCode + 
+					 "<br />Course name: " + data[i].courseName +
+					 "<br />Study period: " + data[i].studyPeriod +
+					 "<br />faculty code: " + data[i].courseHolderCode + " </div>");
 				}
 
+				representations += ("</div>");
 
 				$('#content').append(representations);
 			})
