@@ -1,6 +1,6 @@
 #content {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: wrap;
 }
 
@@ -8,7 +8,20 @@ body {
 	background: #e2e1e0;
 }
 
+<<<<<<< HEAD
 .course {
+=======
+.period {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-top: 1em;
+	margin-bottom: 2em;
+	justify-content: center;
+}
+
+.mpsof {
+>>>>>>> 554d79ecd9c300575f07cc8d2932537c7613add2
 	width: 10vw;
 	margin: 1em;
 	padding: 1vw 1vw 1vw 1vw;
