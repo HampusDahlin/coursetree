@@ -7,10 +7,6 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 
 		<script type="text/javascript">
-			//var data = $.csv.toObjects(input);
-			console.log(data);
-
-
 			//Does on document ready
 			$( document ).ready(function() {
 				var selectedCourses = [];
@@ -34,7 +30,7 @@
 					representations += (
 					 "<div class='course " + data[i].courseHolderCode
 					 + "' id=" + data[i].courseCode +
-					 "> <block class='course-code'>" + data[i].courseCode +
+					 " draggable='true' ondragstart='handleDragStart(event)'> <block class='course-code'>" + data[i].courseCode +
 					 "</block><p class='course-name'>" + data[i].courseName +
 					 "</p></div>");
 				}
@@ -69,14 +65,33 @@
 						$("#study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
 					};
 				})
-
 			})
+
+			var dragSrcEl = null;
+			
+			function handleDragStart(e) {
+				// Target (this) element is the source node.
+				dragSrcEl = this;
+				e.dataTransfer.effectAllowed = 'move';
+				e.dataTransfer.setData("text/plain", e.target.id);
+				console.log("lift-off");
+			}
+
+			function handleDragover(e) {
+				e.preventDefault();
+				// Set the dropEffect to move
+				e.dataTransfer.dropEffect = "move"
+			}
+
+			function handleDrop(e) {
+				console.log("landing");
+			}
 		</script>
 		<meta charset="UTF-8">
 	</head>
 	<body>
 		<div id="content">
-			<div id="selected-courses">
+			<div id="selected-courses" ondrop="handleDrop(event)" ondragover="handleDragover(event)">
 				<div class="period-selection" id="study-period-one">
 				</div>
 				<div class="period-selection" id="study-period-two">
