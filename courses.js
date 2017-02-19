@@ -203,7 +203,6 @@ var data = $.csv.toObjects(`"courseCode","courseName","courseHolderCode","course
 "TIN173","Artificiell intelligens","MPALG","DATAVETENSKAP - ALGORITMER, PROGRAMSPRÅK OCH LOGIK, MASTERPROGRAM","LP4"
 "TMA026","Partiella differentialekvationer fortsättningskurs","MPENM","MATEMATIK OCH BERÄKNINGSVETENSKAP, MASTERPROGRAM","LP4"
 "TMA265","Numerisk linjär algebra","MPENM","MATEMATIK OCH BERÄKNINGSVETENSKAP, MASTERPROGRAM","LP1"
-"TMA265","Numerisk linjär algebra","MPENM","MATEMATIK OCH BERÄKNINGSVETENSKAP, MASTERPROGRAM","LP1"
 "TMA285","Finansiella derivat och partiella differentialekvationer","MPENM","MATEMATIK OCH BERÄKNINGSVETENSKAP, MASTERPROGRAM","LP4"
 "TMA362","Fourieranalys","MPENM","MATEMATIK OCH BERÄKNINGSVETENSKAP, MASTERPROGRAM","LP2"
 "TMA372","Partiella differentialekvationer, grundkurs","MPENM","MATEMATIK OCH BERÄKNINGSVETENSKAP, MASTERPROGRAM","LP4"
