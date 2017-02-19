@@ -7,9 +7,10 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 
 		<script type="text/javascript">
+			var selectedCourses = [];
+
 			//Does on document ready
 			$( document ).ready(function() {
-				var selectedCourses = [];
 
 				//Create visual representations of courses and display them
 				var representations = "";
@@ -37,58 +38,48 @@
 				representations += ("</div>");
 
 				$('#course-list').append(representations);
-
 				//End of creating visual representations and displaying them.
-
-				//On course click
-				$(".course").click(function() {
-					for(i in data) {
-						if(data[i].courseCode == event.target.id){
-							selectedCourses.push(data[i]);
-						}
-					}
-
-					for (var i = 1; i <= 4; i++) {
-						var selectedCoursesForPeriod = [];
-						var selectedCourseRepresentations = "";
-						for(j in selectedCourses) {
-							if(selectedCourses[j].studyPeriod == "LP"+i){
-								selectedCoursesForPeriod.push(selectedCourses[j]);
-								if(selectedCoursesForPeriod.length > 2){
-									selectedCoursesForPeriod.shift();
-								}
-							}
-						}
-						for(j in selectedCoursesForPeriod) {
-							selectedCourseRepresentations += ("<div class='selected-course " + selectedCoursesForPeriod[j].courseHolderCode + " ><p id='course-code'>" + selectedCoursesForPeriod[j].courseCode + " </p><p id='course-name'>"+ selectedCoursesForPeriod[j].courseName + "</p></div>");
-						}
-						$("#study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
-					};
-				})
 			})
 
-			var dragSrcEl = null;
-			
 			function handleDragStart(e) {
-				// Target (this) element is the source node.
-				dragSrcEl = this;
 				e.dataTransfer.effectAllowed = 'move';
 				e.dataTransfer.setData("text/plain", e.target.id);
-				console.log("lift-off");
 			}
 
 			function handleDragover(e) {
 				e.preventDefault();
-				// Set the dropEffect to move
 				e.dataTransfer.dropEffect = "move"
 			}
 
 			function handleDrop(e) {
-				console.log("landing");
+				for(i in data) {
+					if(data[i].courseCode == e.dataTransfer.getData("text")){
+						selectedCourses.push(data[i]);
+					}
+				}
+
+				for (var i = 1; i <= 4; i++) {
+					var selectedCoursesForPeriod = [];
+					var selectedCourseRepresentations = "";
+					for(j in selectedCourses) {
+						if(selectedCourses[j].studyPeriod == "LP"+i){
+							selectedCoursesForPeriod.push(selectedCourses[j]);
+							if(selectedCoursesForPeriod.length > 2){
+								selectedCoursesForPeriod.shift();
+							}
+						}
+					}
+					for(j in selectedCoursesForPeriod) {
+						selectedCourseRepresentations += ("<div class='selected-course " + selectedCoursesForPeriod[j].courseHolderCode + " ><p id='course-code'>" + selectedCoursesForPeriod[j].courseCode + " </p><p id='course-name'>"+ selectedCoursesForPeriod[j].courseName + "</p></div>");
+					}
+					$("#study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
+				};
 			}
 		</script>
+
 		<meta charset="UTF-8">
 	</head>
+
 	<body>
 		<div id="content">
 			<div id="selected-courses" ondrop="handleDrop(event)" ondragover="handleDragover(event)">
