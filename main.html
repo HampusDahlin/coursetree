@@ -8,10 +8,10 @@
 		<script type="text/javascript">
 			//var data = $.csv.toObjects(input);
 			console.log(data);
-			
+
 			$( document ).ready(function() {
 				var representations = [];
-				
+
 				data.sort(function(a,b){
 					var textA = a.courseCode;
     				var textB = b.courseCode;
@@ -19,14 +19,11 @@
 				})
 
 				for(i in data){
-					representations.push("<div class='course " + data[i].courseHolderCode + "' id=" + data[i].courseCode + ">Course code: " + data[i].courseCode + "<br />Course name: " + data[i].courseName + "<br />faculty code: " + data[i].courseHolderCode + " </div>");
-					
-					/*switch(data[i].courseHolderCode) {
-						case "MPSOF":
-							console.log("red");
-							$( ".MPSOF" ).css("background-color", "green");
-							break;
-					}*/
+					representations.push("<div class='course " + data[i].courseHolderCode
+					 + "' id=" + data[i].courseCode + ">Course code: " +
+					 data[i].courseCode + "<br />Course name: " +
+				 	 data[i].courseName + "<br />faculty code: " +
+					 data[i].courseHolderCode + " </div>");
 				}
 
 
