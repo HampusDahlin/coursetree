@@ -10,7 +10,11 @@
 			//var data = $.csv.toObjects(input);
 			console.log(data);
 
+
+			//Does on document ready
 			$( document ).ready(function() {
+
+				//Create visual representations of courses and display them
 				var representations = "";
 
 				data.sort(function(a,b){
@@ -37,6 +41,14 @@
 				representations += ("</div>");
 
 				$('#content').append(representations);
+
+				//End of creating visual representations and displaying them.
+
+				//On course click
+				$(".course").click(function() {
+					console.log(event.target.id);
+				})
+				
 			})
 		</script>
 		<meta charset="UTF-8">
