@@ -45,8 +45,8 @@
 				for(i in data) {
 					if(i > 0){
 						if(data[i-1].studyPeriod != data[i].studyPeriod){
-							representations += ("</div><center><div class='lp'>" +
-								data[i].studyPeriod +"</div></center><div class='period'>");
+							representations += ("</div><center><div class='lp'" +
+							 "'>" + data[i].studyPeriod +"</div></center><div class='period'>");
 						}
 					}
 					representations += (
@@ -71,8 +71,10 @@
 		</script>
 
 		<script>
-			$("#course-list").click(function() {
-				console.log("asdasd");
+			$(document).ready(function(){
+				$('.lp').click(function() {
+					console.log("asdasd");
+				})
 			})
 		</script>
 
