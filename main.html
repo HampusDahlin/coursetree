@@ -31,16 +31,13 @@
 		<!--Scripts-->
 		<script type="text/javascript">
 			var selectedCourses = [];
-
-			//Does on document ready
-			$( document ).ready(function() {
-
+			function render() {
 				//Create visual representations of courses and display them
 				var representations = "";
 
 				data.sort(function(a,b){
-				    return (a.studyPeriod < b.studyPeriod) ? -1 : (a.studyPeriod > b.studyPeriod) ? 1 :
-				    	((a.courseHolderCode < b.courseHolderCode) ? -1 : (a.courseHolderCode > b.courseHolderCode) ? 1 : 0);
+						return (a.studyPeriod < b.studyPeriod) ? -1 : (a.studyPeriod > b.studyPeriod) ? 1 :
+							((a.courseHolderCode < b.courseHolderCode) ? -1 : (a.courseHolderCode > b.courseHolderCode) ? 1 : 0);
 				})
 
 				representations += ("<center><div class='lp'>LP1</div></center><div class='period'>");
@@ -60,10 +57,17 @@
 					 data[i].courseName + "</p></div>");
 				}
 				representations += ("</div>");
-
+				$('#course-list').html("");
 				$('#course-list').append(representations);
 				//End of creating visual representations and displaying them.
-			})
+			}
+		</script>
+
+		<script type="text/javascript">
+
+			//Does on document ready
+			$( document ).ready(function(){
+				render();});
 		</script>
 
 		<script>
@@ -88,6 +92,8 @@
 				for(i in data) {
 					if(data[i].courseCode == e.dataTransfer.getData("text")){
 						selectedCourses.push(data[i]);
+						data.splice(i,1);
+						render();
 					}
 				}
 
@@ -98,7 +104,16 @@
 						if(selectedCourses[j].studyPeriod == "LP"+i){
 							selectedCoursesForPeriod.push(selectedCourses[j]);
 							if(selectedCoursesForPeriod.length > 2){
-								selectedCoursesForPeriod.shift();
+								data.push(selectedCoursesForPeriod[0]);
+								var a = selectedCoursesForPeriod.shift();
+								for (k in selectedCourses) {
+									if(selectedCourses[k] == a){
+										selectedCourses.splice(k,1);
+									}
+								}
+
+								console.log(selectedCourses.length);
+								render();
 							}
 						}
 					}
