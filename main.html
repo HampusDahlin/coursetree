@@ -25,15 +25,16 @@
 				for(i in data) {
 					if(i > 0){
 						if(data[i-1].studyPeriod != data[i].studyPeriod){
-							representations += ("</div><center><div class='lp'>" + data[i].studyPeriod +"</div></center><div class='period'>");
+							representations += ("</div><center><div class='lp'>" + 
+								data[i].studyPeriod +"</div></center><div class='period'>");
 						}
 					}
 					representations += (
 					 "<div class='course " + data[i].courseHolderCode
 					 + "' id=" + data[i].courseCode +
-					 " draggable='true' ondragstart='handleDragStart(event)'> <block class='course-code'>" + data[i].courseCode +
-					 "</block><p class='course-name'>" + data[i].courseName +
-					 "</p></div>");
+					 " draggable='true' ondragstart='handleDragStart(event)'> <block class='course-code'>" + 
+					 data[i].courseCode + "</block><p class='course-name'>" + 
+					 data[i].courseName + "</p></div>");
 				}
 				representations += ("</div>");
 
@@ -70,7 +71,10 @@
 						}
 					}
 					for(j in selectedCoursesForPeriod) {
-						selectedCourseRepresentations += ("<div class='selected-course " + selectedCoursesForPeriod[j].courseHolderCode + " ><p id='course-code'>" + selectedCoursesForPeriod[j].courseCode + " </p><p id='course-name'>"+ selectedCoursesForPeriod[j].courseName + "</p></div>");
+						selectedCourseRepresentations += ("<div class='selected-course " + 
+							selectedCoursesForPeriod[j].courseHolderCode + " ><p id='course-code'>" + 
+							selectedCoursesForPeriod[j].courseCode + " </p><p id='course-name'>"+ 
+							selectedCoursesForPeriod[j].courseName + "</p></div>");
 					}
 					$("#study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
 				};
