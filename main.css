@@ -1,5 +1,19 @@
 #content {
 	display: flex;
+	flex-direction: row;
+}
+
+#selected-courses {
+	min-width: 30vw;
+	height: 80vh;	
+	margin: 1em;
+	padding: 1vw 1vw 1vw 1vw;
+	background: #c2c1c0;
+	box-shadow: 0 6px 20px rgba(0,0,0,0.20), 0 6px 10px rgba(0,0,0,0.22);
+}
+
+#course-list {
+	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 }

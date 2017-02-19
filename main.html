@@ -40,21 +40,36 @@
 
 				representations += ("</div>");
 
-				$('#content').append(representations);
+				$('#course-list').append(representations);
 
 				//End of creating visual representations and displaying them.
 
 				//On course click
 				$(".course").click(function() {
 					console.log(event.target.id);
+					for(i in data) {
+						
+					}
 				})
-				
+
 			})
 		</script>
 		<meta charset="UTF-8">
 	</head>
 	<body>
 		<div id="content">
+			<div id="selected-courses">
+				<div class="period-selection" id="study-period-one">
+				</div>
+				<div class="period-selection" id="study-period-two">
+				</div>
+				<div class="period-selection" id="study-period-three">
+				</div>
+				<div class="period-selection" id="study-period-four">
+				</div>
+			</div>
+			<div id="course-list">
+			</div>
 		</div>
 	</body>
 </html>
