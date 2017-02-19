@@ -1,4 +1,4 @@
-var data = $.csv.toObjects(`"courseCode","courseName","courseHolderCode","courseHolderName", "studyPeriod"
+var data = $.csv.toObjects(`"courseCode","courseName","courseHolderCode","courseHolderName","studyPeriod"
 "BOM060","Miljöriskanalys för ingenjörer","MPTSE","INDUSTRIELL EKOLOGI, MASTERPROGRAM","LP3"
 "CIP011","Design av teknikbaserade innovationer och marknader","MPBDP","ENTREPRENÖRSKAP OCH AFFÄRSDESIGN, MASTERPROGRAM","LP4"
 "CIP017","Teknikbaserat entreprenörskap","MPBDP","ENTREPRENÖRSKAP OCH AFFÄRSDESIGN, MASTERPROGRAM","LP2"
