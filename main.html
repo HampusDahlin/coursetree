@@ -5,7 +5,30 @@
 		<script src="courses.js"></script>
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div id="content">
+			<div id="selected-courses" ondrop="handleDrop(event)" ondragover="handleDragover(event)">
+				<center><div class='lp-disp' >LP1</div></center>
+				<div class="period-selection" id="study-period-one">
+				</div>
+				<center><div class='lp-disp'>LP2</div></center>
+				<div class="period-selection" id="study-period-two">
+				</div>
+				<center><div class='lp-disp'>LP3</div></center>
+				<div class="period-selection" id="study-period-three">
+				</div>
+				<center><div class='lp-disp'>LP4</div></center>
+				<div class="period-selection" id="study-period-four">
+				</div>
+			</div>
+			<div id="course-list">
+			</div>
+		</div>
 
+
+		<!--Scripts-->
 		<script type="text/javascript">
 			var selectedCourses = [];
 
@@ -41,7 +64,15 @@
 				$('#course-list').append(representations);
 				//End of creating visual representations and displaying them.
 			})
+		</script>
 
+		<script>
+			$("#course-list").click(function() {
+				console.log("asdasd");
+			})
+		</script>
+
+		<script type="text/javascript">
 			function handleDragStart(e) {
 				e.dataTransfer.effectAllowed = 'move';
 				e.dataTransfer.setData("text/plain", e.target.id);
@@ -79,29 +110,8 @@
 					$("#study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
 				};
 			}
+
 		</script>
-
-		<meta charset="UTF-8">
-	</head>
-
-	<body>
-		<div id="content">
-			<div id="selected-courses" ondrop="handleDrop(event)" ondragover="handleDragover(event)">
-				<center><div class='lp-disp'>LP1</div></center>
-				<div class="period-selection" id="study-period-one">
-				</div>
-				<center><div class='lp-disp'>LP2</div></center>
-				<div class="period-selection" id="study-period-two">
-				</div>
-				<center><div class='lp-disp'>LP3</div></center>
-				<div class="period-selection" id="study-period-three">
-				</div>
-				<center><div class='lp-disp'>LP4</div></center>
-				<div class="period-selection" id="study-period-four">
-				</div>
-			</div>
-			<div id="course-list">
-			</div>
-		</div>
+		<!--end of scripts-->
 	</body>
 </html>
