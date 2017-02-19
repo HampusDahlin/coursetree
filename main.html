@@ -19,16 +19,16 @@
 				var representations = "";
 
 				data.sort(function(a,b){
-				    return (a.studyPeriod < b.studyPeriod) ? -1 : (a.studyPeriod > b.studyPeriod) ? 1 : 
+				    return (a.studyPeriod < b.studyPeriod) ? -1 : (a.studyPeriod > b.studyPeriod) ? 1 :
 				    	((a.courseHolderCode < b.courseHolderCode) ? -1 : (a.courseHolderCode > b.courseHolderCode) ? 1 : 0);
 				})
 
-				representations += ("<div class='period'>");
+				representations += ("<center><div class='lp'>LP1</div></center><div class='period'>");
 
-				for(i in data){
+				for(i in data) {
 					if(i > 0){
 						if(data[i-1].studyPeriod != data[i].studyPeriod){
-							representations += ("</div><div class='period'>");
+							representations += ("</div><center><div class='lp'>" + data[i].studyPeriod +"</div></center><div class='period'>");
 						}
 					}
 					representations += (
@@ -38,7 +38,6 @@
 					 "</block><p class='course-name'>" + data[i].courseName +
 					 "</p></div>");
 				}
-
 				representations += ("</div>");
 
 				$('#course-list').append(representations);
