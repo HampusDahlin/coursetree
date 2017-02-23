@@ -3,7 +3,7 @@
 	flex-direction: row;
 }
 
-#selected-courses {
+.selected-courses {
 	position: fixed;
 	width: 30vw;
 	height: 90vh;
