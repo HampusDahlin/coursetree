@@ -183,17 +183,27 @@
 			}
 		</script>
 
+		<!-- Toggle years -->
 		<script>
 			$('.year-toggle-container').click(function(event){
 				switch (event.target.id) {
+					case "first-year-toggle":
+						$("#first-year-selected-courses").slideToggle();
+						$("#second-year-selected-courses").slideUp();
+						$("#third-year-selected-courses").slideUp();
+						console.log("first year toggle");
+						break;
+					case "second-year-toggle":
+						$("#second-year-selected-courses").slideToggle();
+						$("#first-year-selected-courses").slideUp();
+						$("#third-year-selected-courses").slideUp();
+						console.log("second year toggle");
+						break;
 					case "third-year-toggle":
 						$("#third-year-selected-courses").slideToggle();
-						break;
-					case "second-year-toggle":
-						$("#second-year-selected-courses").slideToggle();
-						break;
-					case "second-year-toggle":
-						$("#second-year-selected-courses").slideToggle();
+						$("#first-year-selected-courses").slideUp();
+						$("#second-year-selected-courses").slideUp();
+						console.log("third year toggle");
 						break;
 				}
 			})
