@@ -16,13 +16,17 @@
 	flex-direction: column;
 }
 
+.year-container {
+	max-height: 90%;
+}
+
 .year-toggle-container {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	background-color: #b2b1b0;
-	padding: 4px;
+	height: 5%;
 	margin-bottom: 4px;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.20), 0 2px 7px rgba(0,0,0,0.22);
 	cursor: pointer;
@@ -39,7 +43,7 @@
 	display: flex;
 	flex-direction: row;
 	width: 100%;
-	height: 23%;
+	height: 18%;
 }
 
 .selected-course {
