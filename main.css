@@ -16,6 +16,25 @@
 	flex-direction: column;
 }
 
+.year-toggle-container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #b2b1b0;
+	padding: 4px;
+	margin-bottom: 4px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.20), 0 2px 7px rgba(0,0,0,0.22);
+	cursor: pointer;
+}
+
+.year-toggle {
+	background-image: url("arrow-down.png");
+	background-size: contain;
+	width: 26px;
+	height: 26px;
+}
+
 .period-selection {
 	display: flex;
 	flex-direction: row;

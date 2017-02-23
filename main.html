@@ -7,20 +7,37 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 		<meta charset="UTF-8">
 	</head>
+
 	<body>
 		<div id="content">
 			<div class="selected-courses" ondrop="handleDrop(event)" ondragover="handleDragover(event)">
-				<center><div class='lp-disp' >LP1</div></center>
-				<div class="period-selection" id="study-period-one">
+				<div class="year-toggle-container" id="first-year-toggle">
+					First year
+					<div class="year-toggle"></div>
 				</div>
-				<center><div class='lp-disp'>LP2</div></center>
-				<div class="period-selection" id="study-period-two">
+				<div class="year-toggle-container" id="second-year-toggle">
+					Second year
+					<div class="year-toggle"></div>
 				</div>
-				<center><div class='lp-disp'>LP3</div></center>
-				<div class="period-selection" id="study-period-three">
-				</div>
-				<center><div class='lp-disp'>LP4</div></center>
-				<div class="period-selection" id="study-period-four">
+				<div class="year-container">
+					<div class="year-toggle-container" id="third-year-toggle">
+						Third year
+						<div class="year-toggle"></div>
+					</div>
+					<div class="year-selected-courses" id="third-year-selected-courses">
+						<center><div class='lp-disp' >LP1</div></center>
+						<div class="period-selection" id="study-period-one">
+						</div>
+						<center><div class='lp-disp'>LP2</div></center>
+						<div class="period-selection" id="study-period-two">
+						</div>
+						<center><div class='lp-disp'>LP3</div></center>
+						<div class="period-selection" id="study-period-three">
+						</div>
+						<center><div class='lp-disp'>LP4</div></center>
+						<div class="period-selection" id="study-period-four">
+						</div>
+					</div>
 				</div>
 			</div>
 			<div id="course-list" ondrop="render()" ondragover="handleDragover(event)">
@@ -133,6 +150,22 @@
 					$("#study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
 				};
 			}
+		</script>
+
+		<script>
+			$('.year-toggle-container').click(function(event){
+				switch (event.target.id) {
+					case "third-year-toggle":
+						$("#third-year-selected-courses").slideToggle();
+						break;
+					case "second-year-toggle":
+						$("#second-year-selected-courses").slideToggle();
+						break;
+					case "second-year-toggle":
+						$("#second-year-selected-courses").slideToggle();
+						break;
+				}
+			})
 
 		</script>
 		<!--end of scripts-->
