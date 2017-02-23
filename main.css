@@ -98,12 +98,12 @@ body {
 }
 
 .mpcsn {
-	background-color: orange;
+	background-color: #EF6C00 ;
 	color: white;
 }
 
 .mpalg {
-	background-color: orange;
+	background-color: #EF6C00 ;
 	color: white;
 }
 
@@ -123,12 +123,12 @@ body {
 }
 
 .mplol {
-	background-color: red;
+	background-color: #F44336;
 	color: white;
 }
 
 .mts {
-	background-color: green;
+	background-color: #689F38;
 	color: white;
 }
 
@@ -148,7 +148,7 @@ body {
 }
 
 .tkdat {
-	background-color: orange;
+	background-color: #EF6C00 ;
 	color: white;
 }
 
@@ -198,7 +198,7 @@ body {
 }
 
 .mpqom {
-	background-color: green;
+	background-color: #689F38;
 	color: white;
 }
 
@@ -218,6 +218,6 @@ body {
 }
 
 .mptse {
-	background-color: green;
+	background-color: #689F38;
 	color: white;
 }
