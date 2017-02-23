@@ -7,20 +7,69 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 		<meta charset="UTF-8">
 	</head>
+
 	<body>
 		<div id="content">
-			<div id="selected-courses" ondrop="handleDrop(event)" ondragover="handleDragover(event)">
-				<center><div class='lp-disp' >LP1</div></center>
-				<div class="period-selection" id="study-period-one">
+			<div class="selected-courses" ondrop="handleDrop(event)" ondragover="handleDragover(event)">
+				<div class="year-container">
+					<div class="year-toggle-container" id="first-year-toggle">
+						First year
+						<div class="year-toggle"></div>
+					</div>
+					<div class="year-selected-courses" id="first-year-selected-courses">
+						<center><div class='lp-disp' id="first-year-lp-1">LP1</div></center>
+						<div class="period-selection" id="first-year-study-period-one">
+						</div>
+						<center><div class='lp-disp' id="first-year-lp-1">LP2</div></center>
+						<div class="period-selection" id="first-year-study-period-two">
+						</div>
+						<center><div class='lp-disp' id="first-year-lp-1">LP3</div></center>
+						<div class="period-selection" id="first-year-study-period-three">
+						</div>
+						<center><div class='lp-disp' id="first-year-lp-1">LP4</div></center>
+						<div class="period-selection" id="first-year-study-period-four">
+						</div>
+					</div>
 				</div>
-				<center><div class='lp-disp'>LP2</div></center>
-				<div class="period-selection" id="study-period-two">
+				<div class="year-container">
+					<div class="year-toggle-container" id="second-year-toggle">
+						Second year
+						<div class="year-toggle"></div>
+					</div>
+					<div class="year-selected-courses" id="second-year-selected-courses">
+						<center><div class='lp-disp' >LP1</div></center>
+						<div class="period-selection" id="second-year-study-period-one">
+						</div>
+						<center><div class='lp-disp'>LP2</div></center>
+						<div class="period-selection" id="second-year-study-period-two">
+						</div>
+						<center><div class='lp-disp'>LP3</div></center>
+						<div class="period-selection" id="second-year-study-period-three">
+						</div>
+						<center><div class='lp-disp'>LP4</div></center>
+						<div class="period-selection" id="second-year-study-period-four">
+						</div>
+					</div>
 				</div>
-				<center><div class='lp-disp'>LP3</div></center>
-				<div class="period-selection" id="study-period-three">
-				</div>
-				<center><div class='lp-disp'>LP4</div></center>
-				<div class="period-selection" id="study-period-four">
+				<div class="year-container">
+					<div class="year-toggle-container" id="third-year-toggle">
+						Third year
+						<div class="year-toggle"></div>
+					</div>
+					<div class="year-selected-courses" id="third-year-selected-courses">
+						<center><div class='lp-disp' >LP1</div></center>
+						<div class="period-selection" id="third-year-study-period-one">
+						</div>
+						<center><div class='lp-disp'>LP2</div></center>
+						<div class="period-selection" id="third-year-study-period-two">
+						</div>
+						<center><div class='lp-disp'>LP3</div></center>
+						<div class="period-selection" id="third-year-study-period-three">
+						</div>
+						<center><div class='lp-disp'>LP4</div></center>
+						<div class="period-selection" id="third-year-study-period-four">
+						</div>
+					</div>
 				</div>
 			</div>
 			<div id="course-list" ondrop="render()" ondragover="handleDragover(event)">
@@ -30,11 +79,15 @@
 
 		<!--Scripts-->
 		<script type="text/javascript">
-			var selectedCourses = [];
+			var selectedCourses = {yearOne:[], yearTwo:[], yearThree:[]};
+			
+
+			//Renders representations for all courses available for selection
 			function render() {
 				//Create visual representations of courses and display them
 				var representations = "";
 
+				//Sorting courses
 				data.sort(function(a,b){
 						return (a.studyPeriod < b.studyPeriod) ? -1 : (a.studyPeriod > b.studyPeriod) ? 1 :
 							((a.courseHolderCode < b.courseHolderCode) ? -1 : (a.courseHolderCode > b.courseHolderCode) ? 1 :
@@ -43,6 +96,7 @@
 
 				representations += ("<center><div class='lp'>LP1</div></center><div class='period'>");
 
+				//Render representations of all courses for list div
 				for(i in data) {
 					if(i > 0){
 						if(data[i-1].studyPeriod != data[i].studyPeriod){
@@ -64,21 +118,19 @@
 			}
 		</script>
 
-		<script type="text/javascript">
 
+		<!--initial rendering of courses -->
+		<script type="text/javascript">
 			//Does on document ready
 			$( document ).ready(function(){
-				render();});
+				render();
+				$("#second-year-selected-courses").slideUp();
+				$("#third-year-selected-courses").slideUp();
+			});
 		</script>
 
-		<script>
-			$(document).ready(function(){
-				$('.lp').click(function() {
-					console.log("asdasd");
-				})
-			})
-		</script>
 
+		<!--Handlers for drag and drop of courses -->
 		<script type="text/javascript">
 			function handleDragStart(e) {
 				e.dataTransfer.effectAllowed = 'move';
@@ -93,43 +145,91 @@
 			}
 
 			function handleDrop(e) {
+				//select the correct year dependent on which year is open
+				var selectedCoursesForYear;
+				switch(e.target.id.split("-")[0]) {
+					case "first":
+						selectedCoursesForYear = selectedCourses.yearOne;
+						break;
+					case "second":
+						selectedCoursesForYear = selectedCourses.yearTwo;
+						break;
+					case "third":
+						selectedCoursesForYear = selectedCourses.yearThree;
+						break;
+				}
+
+				//Push the dropped item to the correct year
 				for(i in data) {
 					if(data[i].courseCode == e.dataTransfer.getData("text")){
-						selectedCourses.push(data[i]);
+						selectedCoursesForYear.push(data[i]);
 						data.splice(i,1);
 						render();
 					}
 				}
 
+				//Iterate over study periods
 				for (var i = 1; i <= 4; i++) {
 					var selectedCoursesForPeriod = [];
 					var selectedCourseRepresentations = "";
-					for(j in selectedCourses) {
-						if(selectedCourses[j].studyPeriod == "LP"+i){
-							selectedCoursesForPeriod.push(selectedCourses[j]);
+					//Iterate over the courses that have been slected for the year
+					for(j in selectedCoursesForYear) {
+						//If the course is in the correct study period
+						if(selectedCoursesForYear[j].studyPeriod == "LP"+i){
+							//Push it to the list of selected courses for the period
+							selectedCoursesForPeriod.push(selectedCoursesForYear[j]);
+							//If there are more than two selected courses for the period
 							if(selectedCoursesForPeriod.length > 2){
+								//Push the earliest course to the list of courses that are selectable and remove it from selected courses
 								data.push(selectedCoursesForPeriod[0]);
 								var a = selectedCoursesForPeriod.shift();
-								for (k in selectedCourses) {
-									if(selectedCourses[k] == a){
-										selectedCourses.splice(k,1);
+								for (k in selectedCoursesForYear) {
+									if(selectedCoursesForYear[k] == a){
+										selectedCoursesForYear.splice(k,1);
 									}
 								}
-
-								console.log(selectedCourses.length);
 								render();
 							}
 						}
 					}
+
+					//Render the selected courses
 					for(j in selectedCoursesForPeriod) {
 						selectedCourseRepresentations += ("<div class='selected-course " +
 						selectedCoursesForPeriod[j].courseHolderCode + "' ><block class='ccp'>" +
 						selectedCoursesForPeriod[j].courseCode + " </block><p class='cnp'>"+
 						selectedCoursesForPeriod[j].courseName + "</p></div>");
 					}
-					$("#study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
+					//Display the rendered courses
+					$("#" + e.target.id.split("-")[0] + "-year-study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
 				};
 			}
+		</script>
+
+		<!-- Toggle years -->
+		<script>
+			$('.year-toggle-container').click(function(event){
+				switch (event.target.id) {
+					case "first-year-toggle":
+						$("#first-year-selected-courses").slideToggle();
+						$("#second-year-selected-courses").slideUp();
+						$("#third-year-selected-courses").slideUp();
+						console.log("first year toggle");
+						break;
+					case "second-year-toggle":
+						$("#second-year-selected-courses").slideToggle();
+						$("#first-year-selected-courses").slideUp();
+						$("#third-year-selected-courses").slideUp();
+						console.log("second year toggle");
+						break;
+					case "third-year-toggle":
+						$("#third-year-selected-courses").slideToggle();
+						$("#first-year-selected-courses").slideUp();
+						$("#second-year-selected-courses").slideUp();
+						console.log("third year toggle");
+						break;
+				}
+			})
 
 		</script>
 		<!--end of scripts-->
