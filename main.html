@@ -30,7 +30,8 @@
 
 		<!--Scripts-->
 		<script type="text/javascript">
-			var selectedCourses = [];
+			var selectedCourses = {yearOne:[], yearTwo:[], yearThree:[]};
+			
 			function render() {
 				//Create visual representations of courses and display them
 				var representations = "";
@@ -68,7 +69,8 @@
 
 			//Does on document ready
 			$( document ).ready(function(){
-				render();});
+				render();
+			});
 		</script>
 
 		<script>
@@ -95,28 +97,29 @@
 			function handleDrop(e) {
 				for(i in data) {
 					if(data[i].courseCode == e.dataTransfer.getData("text")){
-						selectedCourses.push(data[i]);
+						selectedCourses.yearOne.push(data[i]);
 						data.splice(i,1);
 						render();
 					}
 				}
 
+				var selectedCoursesForYear = selectedCourses.yearOne;
 				for (var i = 1; i <= 4; i++) {
 					var selectedCoursesForPeriod = [];
 					var selectedCourseRepresentations = "";
-					for(j in selectedCourses) {
-						if(selectedCourses[j].studyPeriod == "LP"+i){
-							selectedCoursesForPeriod.push(selectedCourses[j]);
+					for(j in selectedCoursesForYear) {
+						if(selectedCoursesForYear[j].studyPeriod == "LP"+i){
+							selectedCoursesForPeriod.push(selectedCoursesForYear[j]);
 							if(selectedCoursesForPeriod.length > 2){
 								data.push(selectedCoursesForPeriod[0]);
 								var a = selectedCoursesForPeriod.shift();
-								for (k in selectedCourses) {
-									if(selectedCourses[k] == a){
-										selectedCourses.splice(k,1);
+								for (k in selectedCoursesForYear) {
+									if(selectedCoursesForYear[k] == a){
+										selectedCoursesForYear.splice(k,1);
 									}
 								}
 
-								console.log(selectedCourses.length);
+								console.log(selectedCoursesForYear.length);
 								render();
 							}
 						}
