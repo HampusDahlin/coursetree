@@ -82,7 +82,6 @@
 			var selectedCourses = {yearOne:[{course:{courseCode:"EDA433", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Grundläggande datorteknik", studyPeriod:"LP1"}, locked:true}], yearTwo:[], yearThree:[]};
 
 			function renderSelected(selectedCoursesForPeriod, year, i){
-				console.log(selectedCoursesForPeriod);
 				var selectedCourseRepresentations = "";
 				//Render the selected courses
 				for(j in selectedCoursesForPeriod) {
@@ -91,7 +90,6 @@
 					selectedCoursesForPeriod[j].course.courseCode + " </block><p class='cnp'>"+
 					selectedCoursesForPeriod[j].course.courseName + "</p></div>");
 				}
-				console.log(selectedCourseRepresentations);
 				//Display the rendered courses
 				$("#" + year + "-year-study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
 			}
@@ -147,7 +145,7 @@
 							toRender.push(selectedCourses.yearOne[j]);
 						}
 					}
-					renderSelected(toRender, 1, i);
+					renderSelected(toRender, "first", i);
 				};
 				
 				$("#second-year-selected-courses").slideUp();
