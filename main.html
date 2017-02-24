@@ -79,11 +79,26 @@
 
 		<!--Scripts-->
 		<script type="text/javascript">
-			var selectedCourses = {yearOne:[], yearTwo:[], yearThree:[]};
-			
+			var selectedCourses = {yearOne:[{course:{courseCode:"EDA433", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Grundläggande datorteknik", studyPeriod:"LP1"}, locked:true}], yearTwo:[], yearThree:[]};
+
+			function renderSelected(selectedCoursesForPeriod, year, i){
+				console.log(selectedCoursesForPeriod);
+				var selectedCourseRepresentations = "";
+				//Render the selected courses
+				for(j in selectedCoursesForPeriod) {
+					selectedCourseRepresentations += ("<div class='selected-course " +
+					selectedCoursesForPeriod[j].course.courseHolderCode + "' ><block class='ccp'>" +
+					selectedCoursesForPeriod[j].course.courseCode + " </block><p class='cnp'>"+
+					selectedCoursesForPeriod[j].course.courseName + "</p></div>");
+				}
+				console.log(selectedCourseRepresentations);
+				//Display the rendered courses
+				$("#" + year + "-year-study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
+			}
 
 			//Renders representations for all courses available for selection
 			function render() {
+
 				//Create visual representations of courses and display them
 				var representations = "";
 
@@ -124,6 +139,17 @@
 			//Does on document ready
 			$( document ).ready(function(){
 				render();
+
+				for (var i = 1 ; i <= 4; i++) {
+					var toRender = [];
+					for(j in selectedCourses.yearOne) {
+						if(selectedCourses.yearOne[j].course.studyPeriod == "LP" + i) {
+							toRender.push(selectedCourses.yearOne[j]);
+						}
+					}
+					renderSelected(toRender, 1, i);
+				};
+				
 				$("#second-year-selected-courses").slideUp();
 				$("#third-year-selected-courses").slideUp();
 			});
@@ -162,7 +188,8 @@
 				//Push the dropped item to the correct year
 				for(i in data) {
 					if(data[i].courseCode == e.dataTransfer.getData("text")){
-						selectedCoursesForYear.push(data[i]);
+						console.log(data[i]);
+						selectedCoursesForYear.push({course:data[i], locked:false});
 						data.splice(i,1);
 						render();
 					}
@@ -171,37 +198,32 @@
 				//Iterate over study periods
 				for (var i = 1; i <= 4; i++) {
 					var selectedCoursesForPeriod = [];
-					var selectedCourseRepresentations = "";
 					//Iterate over the courses that have been slected for the year
 					for(j in selectedCoursesForYear) {
 						//If the course is in the correct study period
-						if(selectedCoursesForYear[j].studyPeriod == "LP"+i){
+						if(selectedCoursesForYear[j].course.studyPeriod == "LP"+i){
 							//Push it to the list of selected courses for the period
 							selectedCoursesForPeriod.push(selectedCoursesForYear[j]);
 							//If there are more than two selected courses for the period
 							if(selectedCoursesForPeriod.length > 2){
-								//Push the earliest course to the list of courses that are selectable and remove it from selected courses
-								data.push(selectedCoursesForPeriod[0]);
-								var a = selectedCoursesForPeriod.shift();
-								for (k in selectedCoursesForYear) {
-									if(selectedCoursesForYear[k] == a){
-										selectedCoursesForYear.splice(k,1);
+								//Push the earliest non-locked course to the list of courses that are selectable and remove it from selected courses
+								for(k in selectedCoursesForPeriod) {
+									if(!selectedCoursesForPeriod[k].locked){
+										data.push(selectedCoursesForPeriod[k].course);
+										var a = selectedCoursesForPeriod.splice(k,1);
+										for (l in selectedCoursesForYear) {
+											if(selectedCoursesForYear[l].course == a[0].course){
+												selectedCoursesForYear.splice(l,1);
+											}
+										}
+										break;
 									}
 								}
 								render();
 							}
 						}
 					}
-
-					//Render the selected courses
-					for(j in selectedCoursesForPeriod) {
-						selectedCourseRepresentations += ("<div class='selected-course " +
-						selectedCoursesForPeriod[j].courseHolderCode + "' ><block class='ccp'>" +
-						selectedCoursesForPeriod[j].courseCode + " </block><p class='cnp'>"+
-						selectedCoursesForPeriod[j].courseName + "</p></div>");
-					}
-					//Display the rendered courses
-					$("#" + e.target.id.split("-")[0] + "-year-study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
+						renderSelected(selectedCoursesForPeriod, e.target.id.split("-")[0], i);
 				};
 			}
 		</script>
