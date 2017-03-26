@@ -16,22 +16,17 @@
 						First year
 						<div class="year-toggle"></div>
 					</div>
-					<div class="year-selected-courses" id="first-year-selected-courses"
-						ondrop="handleDrop(event)" ondragover="handleDragover(event)">
-						<center><div class='lp-disp' id="first-year-lp-1"
-							ondrop="handleDrop(event)" ondragover="handleDragover(event)">LP1</div></center>
-						<div class="period-selection" id="first-year-study-period-one" >
+					<div class="year-selected-courses" id="first-year-selected-courses">
+						<center><div class='lp-disp' id="first-year-lp-1">LP1</div></center>
+						<div class="period-selection" id="first-year-study-period-one">
 						</div>
-						<center><div class='lp-disp' id="first-year-lp-2"
-							ondrop="handleDrop(event)" ondragover="handleDragover(event)">LP2</div></center>
+						<center><div class='lp-disp' id="first-year-lp-1">LP2</div></center>
 						<div class="period-selection" id="first-year-study-period-two">
 						</div>
-						<center><div class='lp-disp' id="first-year-lp-3"
-							ondrop="handleDrop(event)" ondragover="handleDragover(event)">LP3</div></center>
+						<center><div class='lp-disp' id="first-year-lp-1">LP3</div></center>
 						<div class="period-selection" id="first-year-study-period-three">
 						</div>
-						<center><div class='lp-disp' id="first-year-lp-4"
-							ondrop="handleDrop(event)" ondragover="handleDragover(event)">LP4</div></center>
+						<center><div class='lp-disp' id="first-year-lp-1">LP4</div></center>
 						<div class="period-selection" id="first-year-study-period-four">
 						</div>
 					</div>
@@ -41,21 +36,17 @@
 						Second year
 						<div class="year-toggle"></div>
 					</div>
-					<div class="year-selected-courses" id="second-year-selected-courses" >
-						<center><div class='lp-disp' id = "second-year-lp-1"
-							ondrop="handleDrop(event)" ondragover="handleDragover(event)">LP1</div></center>
+					<div class="year-selected-courses" id="second-year-selected-courses">
+						<center><div class='lp-disp' >LP1</div></center>
 						<div class="period-selection" id="second-year-study-period-one">
 						</div>
-						<center><div class='lp-disp' id = "second-year-lp-2"
-							ondrop="handleDrop(event)" ondragover="handleDragover(event)">LP2</div></center>
+						<center><div class='lp-disp'>LP2</div></center>
 						<div class="period-selection" id="second-year-study-period-two">
 						</div>
-						<center><div class='lp-disp' id = "second-year-lp-3"
-							ondrop="handleDrop(event)" ondragover="handleDragover(event)">LP3</div></center>
+						<center><div class='lp-disp'>LP3</div></center>
 						<div class="period-selection" id="second-year-study-period-three">
 						</div>
-						<center><div class='lp-disp' id = "second-year-lp-4"
-							ondrop="handleDrop(event)" ondragover="handleDragover(event)">LP4</div></center>
+						<center><div class='lp-disp'>LP4</div></center>
 						<div class="period-selection" id="second-year-study-period-four">
 						</div>
 					</div>
@@ -66,20 +57,16 @@
 						<div class="year-toggle"></div>
 					</div>
 					<div class="year-selected-courses" id="third-year-selected-courses">
-						<center><div class='lp-disp' id ="third-year-lp-1"
-							ondrop="handleDrop(event)" ondragover="handleDragover(event)">LP1</div></center>
+						<center><div class='lp-disp' >LP1</div></center>
 						<div class="period-selection" id="third-year-study-period-one">
 						</div>
-						<center><div class='lp-disp' id ="third-year-lp-2"
-							ondrop="handleDrop(event)" ondragover="handleDragover(event)">LP2</div></center>
+						<center><div class='lp-disp'>LP2</div></center>
 						<div class="period-selection" id="third-year-study-period-two">
 						</div>
-						<center><div class='lp-disp' id ="third-year-lp-3"
-							ondrop="handleDrop(event)" ondragover="handleDragover(event)">LP3</div></center>
+						<center><div class='lp-disp'>LP3</div></center>
 						<div class="period-selection" id="third-year-study-period-three">
 						</div>
-						<center><div class='lp-disp' id ="third-year-lp-4"
-							ondrop="handleDrop(event)" ondragover="handleDragover(event)">LP4</div></center>
+						<center><div class='lp-disp'>LP4</div></center>
 						<div class="period-selection" id="third-year-study-period-four">
 						</div>
 					</div>
@@ -94,23 +81,23 @@
 		<script type="text/javascript">
 			var selectedCourses = {
 				yearOne:[
-				{course:{courseCode:"EDA433", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Grundläggande datorteknik", studyPeriod:"LP1"}, locked:true},
-				{course:{courseCode:"TDA545", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Objektorienterad programvaruutveckling", studyPeriod:"LP1"}, locked:true},
-				{course:{courseCode:"TDA550", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Objektorienterad programvaruutveckling fortsättningskurs", studyPeriod:"LP2"}, locked:true},
-				{course:{courseCode:"TMV200", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Diskret matematik", studyPeriod:"LP2"}, locked:true},
-				{course:{courseCode:"TMV206", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Linjär algebra", studyPeriod:"LP3"}, locked:true},
-				{course:{courseCode:"DAT215", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Design och konstruktion av grafiska gränssnitt", studyPeriod:"LP3"}, locked:true},
-				{course:{courseCode:"TDA367", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Objektorienterat programmeringsprojekt", studyPeriod:"LP4"}, locked:true},
-				{course:{courseCode:"LSP310", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Kommunikation och ingenjörskompetens", studyPeriod:"LP4"}, locked:true}],
+				{course:{courseCode:"EDA433", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Grundläggande datorteknik", studyPeriod:"LP1"}, locked:true}, 
+				{course:{courseCode:"TDA545", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Objektorienterad programvaruutveckling", studyPeriod:"LP1"}, locked:true}, 
+				{course:{courseCode:"TDA550", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Objektorienterad programvaruutveckling fortsättningskurs", studyPeriod:"LP2"}, locked:true}, 
+				{course:{courseCode:"TMV200", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Diskret matematik", studyPeriod:"LP2"}, locked:true}, 
+				{course:{courseCode:"TMV206", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Linjär algebra", studyPeriod:"LP3"}, locked:true}, 
+				{course:{courseCode:"DAT215", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Design och konstruktion av grafiska gränssnitt", studyPeriod:"LP3"}, locked:true}, 
+				{course:{courseCode:"TDA367", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Objektorienterat programmeringsprojekt", studyPeriod:"LP4"}, locked:true}, 
+				{course:{courseCode:"LSP310", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Kommunikation och ingenjörskompetens", studyPeriod:"LP4"}, locked:true}], 
 				yearTwo:[
-				{course:{courseCode:"DAT255", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Software engineering project", studyPeriod:"LP1"}, locked:true},
-				{course:{courseCode:"MVE045", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Matematisk analys", studyPeriod:"LP1"}, locked:true},
-				{course:{courseCode:"DAT016", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Progrmmering av inbyggda system", studyPeriod:"LP2"}, locked:true},
-				{course:{courseCode:"MVE050", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Matematisk statistik och diskret matematik", studyPeriod:"LP2"}, locked:true},
-				{course:{courseCode:"TDA416", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Datastrukturer och algoritmer", studyPeriod:"LP3"}, locked:true},
-				{course:{courseCode:"DAT026", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Matematisk modellering och problemlösning", studyPeriod:"LP4"}, locked:true}],
+				{course:{courseCode:"DAT255", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Software engineering project", studyPeriod:"LP1"}, locked:true}, 
+				{course:{courseCode:"MVE045", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Matematisk analys", studyPeriod:"LP1"}, locked:true}, 
+				{course:{courseCode:"DAT016", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Progrmmering av inbyggda system", studyPeriod:"LP2"}, locked:true}, 
+				{course:{courseCode:"MVE050", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Matematisk statistik och diskret matematik", studyPeriod:"LP2"}, locked:true}, 
+				{course:{courseCode:"TDA416", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Datastrukturer och algoritmer", studyPeriod:"LP3"}, locked:true}, 
+				{course:{courseCode:"DAT026", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Matematisk modellering och problemlösning", studyPeriod:"LP4"}, locked:true}], 
 				yearThree:[
-				{course:{courseCode:"ITS023", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Teknik för ett hållbart globalt samhälle", studyPeriod:"LP1"}, locked:true},
+				{course:{courseCode:"ITS023", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Teknik för ett hållbart globalt samhälle", studyPeriod:"LP1"}, locked:true}, 
 				{course:{courseCode:"TDA593", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Modelldriven mjukvaruutveckling", studyPeriod:"LP2"}, locked:true}
 				]
 			};
@@ -154,7 +141,7 @@
 					representations += (
 					 "<div class='course " + data[i].courseHolderCode
 					 + "' id=" + data[i].courseCode +
-					 " draggable='true' ondragstart='handleDragStart(event)' ondrop='handleDrop(event)'> <block class='course-code'>" +
+					 " draggable='true' ondragstart='handleDragStart(event)'> <block class='course-code'>" +
 					 data[i].courseCode + "</block><p class='course-name'>" +
 					 data[i].courseName + "</p></div>");
 				}
@@ -181,7 +168,7 @@
 					}
 					renderSelected(toRender, "first", i);
 				};
-
+				
 				for (var i = 1 ; i <= 4; i++) {
 					var toRender = [];
 					for(j in selectedCourses.yearTwo) {
@@ -276,17 +263,6 @@
 						}
 					}
 						renderSelected(selectedCoursesForPeriod, e.target.id.split("-")[0], i);
-
-					//Render the selected courses
-					for(j in selectedCoursesForPeriod) {
-						selectedCourseRepresentations += ("<div class='selected-course " +
-						selectedCoursesForPeriod[j].courseHolderCode + "' draggable='true' ondragstart='handleDragStart(event)' ondrop='handleDrop(event)'><block class='ccp'>" +
-						selectedCoursesForPeriod[j].courseCode + " </block><p class='cnp'>"+
-						selectedCoursesForPeriod[j].courseName + "</p></div>");
-					}
-					//Display the rendered courses
-					$("#" + e.target.id.split("-")[0] + "-year-study-period-" + (i == 1 ? "one" : i == 2 ? "two" : i == 3 ? "three" : "four")).html(selectedCourseRepresentations);
-					render();
 				};
 			}
 		</script>
