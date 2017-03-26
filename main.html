@@ -15,7 +15,7 @@
 					<div class="year-toggle-container" id="first-year-toggle"
 						ondrop="handleDrop(event)" ondragover="handleDragover(event)">
 						First year
-						<div class="year-toggle"></div>
+						<div class="year-toggle" id="first-year"></div>
 					</div>
 					<div class="year-selected-courses" id="first-year-selected-courses">
 						<center><div class='lp-disp' id="first-year-lp-1" >LP1</div></center>
@@ -36,7 +36,7 @@
 					<div class="year-toggle-container" id="second-year-toggle"
 						ondrop="handleDrop(event)" ondragover="handleDragover(event)">
 						Second year
-						<div class="year-toggle"></div>
+						<div class="year-toggle" id="second-year"></div>
 					</div>
 					<div class="year-selected-courses" id="second-year-selected-courses">
 						<center><div class='lp-disp' >LP1</div></center>
@@ -59,7 +59,7 @@
 					<div class="year-toggle-container" id="third-year-toggle"
 						ondrop="handleDrop(event)" ondragover="handleDragover(event)">
 						Third year
-						<div class="year-toggle"></div>
+						<div class="year-toggle" id="third-year"></div>
 					</div>
 					<div class="year-selected-courses" id="third-year-selected-courses">
 						<center><div class='lp-disp' >LP1</div></center>
@@ -218,7 +218,6 @@
 
 			function handleDrop(e) {
 				//select the correct year dependent on which year is open
-				console.log(e.target);
 				var selectedCoursesForYear;
 				switch(e.target.id.split("-")[0]) {
 					case "first":
@@ -280,25 +279,40 @@
 				switch (event.target.id) {
 					case "first-year-toggle":
 						$("#first-year-selected-courses").slideToggle();
+						if ($("#first-year").css('background-image').includes("down")) {
+							$("#first-year").css('background-image', 'url("arrow-up.png")');
+						} else {
+							$("#first-year").css('background-image', 'url("arrow-down.png")');
+						}
 						$("#second-year-selected-courses").slideUp();
+						$("#second-year").css('background-image', 'url("arrow-down.png")');
 						$("#third-year-selected-courses").slideUp();
-						console.log("first year toggle");
+						$("#third-year").css('background-image', 'url("arrow-down.png")');
 						break;
 					case "second-year-toggle":
 						$("#second-year-selected-courses").slideToggle();
+						if ($("#second-year").css('background-image').includes("down")) {
+							$("#second-year").css('background-image', 'url("arrow-up.png")');
+						} else {
+							$("#second-year").css('background-image', 'url("arrow-down.png")');
+						}
 						$("#first-year-selected-courses").slideUp();
 						$("#third-year-selected-courses").slideUp();
-						console.log("second year toggle");
 						break;
 					case "third-year-toggle":
 						$("#third-year-selected-courses").slideToggle();
+						if ($("#third-year").css('background-image').includes("down")) {
+							$("#third-year").css('background-image', 'url("arrow-up.png")');
+						} else {
+							$("#third-year").css('background-image', 'url("arrow-down.png")');
+						}
 						$("#first-year-selected-courses").slideUp();
+						$("#first-year").css('background-image', 'url("arrow-down.png")');
 						$("#second-year-selected-courses").slideUp();
-						console.log("third year toggle");
+						$("#second-year").css('background-image', 'url("arrow-down.png")');
 						break;
 				}
 			})
-
 		</script>
 		<!--end of scripts-->
 	</body>

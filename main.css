@@ -39,6 +39,10 @@
 	height: 26px;
 }
 
+#first-year {
+	background-image: url("arrow-up.png");
+}
+
 .period-selection {
 	display: flex;
 	flex-direction: row;
