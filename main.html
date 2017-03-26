@@ -169,6 +169,26 @@
 					renderSelected(toRender, "first", i);
 				};
 				
+				for (var i = 1 ; i <= 4; i++) {
+					var toRender = [];
+					for(j in selectedCourses.yearTwo) {
+						if(selectedCourses.yearTwo[j].course.studyPeriod == "LP" + i) {
+							toRender.push(selectedCourses.yearTwo[j]);
+						}
+					}
+					renderSelected(toRender, "second", i);
+				};
+
+				for (var i = 1 ; i <= 4; i++) {
+					var toRender = [];
+					for(j in selectedCourses.yearThree) {
+						if(selectedCourses.yearThree[j].course.studyPeriod == "LP" + i) {
+							toRender.push(selectedCourses.yearThree[j]);
+						}
+					}
+					renderSelected(toRender, "third", i);
+				};
+
 				$("#second-year-selected-courses").slideUp();
 				$("#third-year-selected-courses").slideUp();
 			});
