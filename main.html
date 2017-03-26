@@ -317,46 +317,35 @@
 		<script>
 			$('.year-toggle-container').click(function(event){
 				switch (event.target.id) {
-					case "first-year-toggle":
-						$("#first-year-selected-courses").slideToggle();
-						if ($("#first-year").css('background-image').includes("down")) {
-							$("#first-year").css('background-image', 'url("arrow-up.png")');
-						} else {
-							$("#first-year").css('background-image', 'url("arrow-down.png")');
-						}
-						$("#second-year-selected-courses").slideUp();
-						$("#second-year").css('background-image', 'url("arrow-down.png")');
-						$("#third-year-selected-courses").slideUp();
-						$("#third-year").css('background-image', 'url("arrow-down.png")');
-						break;
-					case "second-year-toggle":
-						$("#second-year-selected-courses").slideToggle();
-						if ($("#second-year").css('background-image').includes("down")) {
-							$("#second-year").css('background-image', 'url("arrow-up.png")');
-						} else {
-							$("#second-year").css('background-image', 'url("arrow-down.png")');
-						}
-						$("#first-year-selected-courses").slideUp();
-						$("#third-year-selected-courses").slideUp();
-						break;
-					case "third-year-toggle":
-						$("#third-year-selected-courses").slideToggle();
-						if ($("#third-year").css('background-image').includes("down")) {
-							$("#third-year").css('background-image', 'url("arrow-up.png")');
-						} else {
-							$("#third-year").css('background-image', 'url("arrow-down.png")');
-						}
-						$("#first-year-selected-courses").slideUp();
-						$("#first-year").css('background-image', 'url("arrow-down.png")');
-						$("#second-year-selected-courses").slideUp();
-						$("#second-year").css('background-image', 'url("arrow-down.png")');
-						break;
+						case "first-year-toggle":
+							switchImages("first");
+							break;
+						case "second-year-toggle":
+							switchImages("second");
+							break;
+						case "third-year-toggle":
+							switchImages("third");
+							break;
 				}
 			})
 
 			$('.year-toggle').click(function(event){
 				switch (event.target.id) {
 					case "first-year":
+						switchImages("first");
+						break;
+					case "second-year":
+						switchImages("second");
+						break;
+					case "third-year":
+						switchImages("third");
+						break;
+				}
+			})
+
+			function switchImages(id) {
+				switch (id) {
+					case "first":
 						$("#first-year-selected-courses").slideToggle();
 						if ($("#first-year").css('background-image').includes("down")) {
 							$("#first-year").css('background-image', 'url("arrow-up.png")');
@@ -368,7 +357,7 @@
 						$("#third-year-selected-courses").slideUp();
 						$("#third-year").css('background-image', 'url("arrow-down.png")');
 						break;
-					case "second-year":
+					case "second":
 						$("#second-year-selected-courses").slideToggle();
 						if ($("#second-year").css('background-image').includes("down")) {
 							$("#second-year").css('background-image', 'url("arrow-up.png")');
@@ -378,7 +367,7 @@
 						$("#first-year-selected-courses").slideUp();
 						$("#third-year-selected-courses").slideUp();
 						break;
-					case "third-year":
+					case "third":
 						$("#third-year-selected-courses").slideToggle();
 						if ($("#third-year").css('background-image').includes("down")) {
 							$("#third-year").css('background-image', 'url("arrow-up.png")');
@@ -391,7 +380,7 @@
 						$("#second-year").css('background-image', 'url("arrow-down.png")');
 						break;
 				}
-			})
+			}
 		</script>
 		<!--end of scripts-->
 	</body>

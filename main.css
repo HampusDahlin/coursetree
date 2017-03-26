@@ -27,6 +27,9 @@
 	align-items: center;
 	background-color: #b2b1b0;
 	height: 5%;
+	font-family: 'Roboto Slab', serif;
+	color: white;
+	text-indent: 15px;
 	margin-bottom: 4px;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.20), 0 2px 7px rgba(0,0,0,0.22);
 	cursor: pointer;
