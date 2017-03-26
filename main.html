@@ -79,7 +79,28 @@
 
 		<!--Scripts-->
 		<script type="text/javascript">
-			var selectedCourses = {yearOne:[{course:{courseCode:"EDA433", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Grundläggande datorteknik", studyPeriod:"LP1"}, locked:true}], yearTwo:[], yearThree:[]};
+			var selectedCourses = {
+				yearOne:[
+				{course:{courseCode:"EDA433", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Grundläggande datorteknik", studyPeriod:"LP1"}, locked:true}, 
+				{course:{courseCode:"TDA545", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Objektorienterad programvaruutveckling", studyPeriod:"LP1"}, locked:true}, 
+				{course:{courseCode:"TDA550", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Objektorienterad programvaruutveckling fortsättningskurs", studyPeriod:"LP2"}, locked:true}, 
+				{course:{courseCode:"TMV200", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Diskret matematik", studyPeriod:"LP2"}, locked:true}, 
+				{course:{courseCode:"TMV206", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Linjär algebra", studyPeriod:"LP3"}, locked:true}, 
+				{course:{courseCode:"DAT215", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Design och konstruktion av grafiska gränssnitt", studyPeriod:"LP3"}, locked:true}, 
+				{course:{courseCode:"TDA367", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Objektorienterat programmeringsprojekt", studyPeriod:"LP4"}, locked:true}, 
+				{course:{courseCode:"LSP310", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Kommunikation och ingenjörskompetens", studyPeriod:"LP4"}, locked:true}], 
+				yearTwo:[
+				{course:{courseCode:"DAT255", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Software engineering project", studyPeriod:"LP1"}, locked:true}, 
+				{course:{courseCode:"MVE045", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Matematisk analys", studyPeriod:"LP1"}, locked:true}, 
+				{course:{courseCode:"DAT016", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Progrmmering av inbyggda system", studyPeriod:"LP2"}, locked:true}, 
+				{course:{courseCode:"MVE050", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Matematisk statistik och diskret matematik", studyPeriod:"LP2"}, locked:true}, 
+				{course:{courseCode:"TDA416", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Datastrukturer och algoritmer", studyPeriod:"LP3"}, locked:true}, 
+				{course:{courseCode:"DAT026", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Matematisk modellering och problemlösning", studyPeriod:"LP4"}, locked:true}], 
+				yearThree:[
+				{course:{courseCode:"ITS023", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Teknik för ett hållbart globalt samhälle", studyPeriod:"LP1"}, locked:true}, 
+				{course:{courseCode:"TDA593", courseHolderCode:"TKITE", courseHolderName:"INFORMATIONSTEKNIK, CIVILINGENJÖR", courseName:"Modelldriven mjukvaruutveckling", studyPeriod:"LP2"}, locked:true}
+				]
+			};
 
 			function renderSelected(selectedCoursesForPeriod, year, i){
 				var selectedCourseRepresentations = "";
